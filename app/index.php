@@ -14,7 +14,6 @@ $text = 'Hello World!';
     <h1>
         <?php
         echo $text;
- var_dump([$text, "zerze", 12]);
         ?>
     </h1>
 </body>
