@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build Docker image
-      run: docker build -t training .
+      run: docker build -t Training .
     - name: Test application
       run: |
         docker run --name test-container -d -p 8080:80 Training
@@ -24,5 +24,5 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Push to Docker Hub
       run: |
-        docker tag training:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/training:latest
-        docker push ${{ secrets.DOCKER_USERNAME }}/training:latest
+        docker tag Training:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/Training:latest
+        docker push ${{ secrets.DOCKER_USERNAME }}/Training:latest
