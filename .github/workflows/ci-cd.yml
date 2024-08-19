@@ -12,7 +12,7 @@ jobs:
     - name: Build Docker image
       run: docker build -t training .
     - name: Test application
-      run:
+      run: |
         docker run --name test-container -d -p 8080:80 Training
         sleep 5
         curl http://localhost:8080 | grep "Hello, CI/CD!"
@@ -23,6 +23,6 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Push to Docker Hub
-      run:
+      run: |
         docker tag training ${{ secrets.DOCKER_USERNAME }}/training:latest
         docker push ${{ secrets.DOCKER_USERNAME }}/training:latest
